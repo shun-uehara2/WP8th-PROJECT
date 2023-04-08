@@ -104,3 +104,27 @@ add_action('wp_enqueue_scripts', 'enqueue_child_scripts');
 }
 
 add_action('init', 'create_song_post_type');
+
+
+
+
+
+
+
+function my_rest_song_query($args, $request) {
+    $level = $request->get_param('level');
+
+    if (!empty($level)) {
+        $args['meta_query'] = array(
+            array(
+                'key' => 'song-level',
+                'value' => $level,
+                'compare' => 'LIKE'
+            )
+        );
+    }
+
+    return $args;
+}
+add_filter('rest_song_query', 'my_rest_song_query', 10, 2);
+

@@ -1,3 +1,17 @@
+//初期値読み込み
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('.level_tab-beginner').click();
+});
+
+
+
+
+
+
+
+
+
 function switchSongs(level) {
     const beginnerSongs = document.querySelectorAll('.song-beginner');
     const intermediateSongs = document.querySelectorAll('.song-intermediate');
@@ -14,3 +28,8 @@ function switchSongs(level) {
     }
   }
   
+
+
+
+
+
